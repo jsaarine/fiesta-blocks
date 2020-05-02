@@ -7,3 +7,10 @@ Container plugin for custom Gutenberg blocks
 2. Activate plugin from WordPress
 3. Run `npm install`
 4. Run `gulp` to start watch
+
+## Create new block
+
+1. Duplicate the `sample-block` folder and rename it
+2. Include the new block in `index.php`
+3. Change block name and path in `block.php`
+4. Change block name in `block.js`
