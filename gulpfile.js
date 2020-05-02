@@ -1,20 +1,12 @@
 const gulp = require('gulp');
 const babel = require('gulp-babel');
 
-gulp.task('babel', done => {
+gulp.task('babel', () => {
     return gulp.src('./*/block.js')
         .pipe(babel())
         .pipe(gulp.dest('./dist'));
 
-    // return gulp.src(['./test-block/block.js'])
-    //     .pipe(babel())
-    //     .pipe(gulp.dest('./test-block/dist')); 
-
-    // return gulp.src(['./test-block2/block.js'])
-    //     .pipe(babel())
-    //     .pipe(gulp.dest('./test-block2/dist')); 
-
-    // done();
+    
 });
 
 gulp.task('watch', () => {
