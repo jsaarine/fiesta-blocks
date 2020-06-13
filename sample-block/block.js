@@ -5,6 +5,10 @@ registerBlockType('fiesta/sample-block', {
 	title: 'Sample block',
 	icon: 'admin-site',
 	category: 'common',
+	supports: {
+		align: ['wide', 'full'],
+		default: 'wide'
+	},
 	attributes: {
 		title: {type: 'string'},
 		content: {type: 'string'},
