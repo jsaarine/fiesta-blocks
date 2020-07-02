@@ -6,14 +6,14 @@ registerBlockType('fiesta/sample-block', {
 	icon: 'admin-site',
 	category: 'common',
 	supports: {
-		align: ['wide', 'full'],
-		default: 'wide'
+		align: ['wide', 'full']
 	},
 	attributes: {
 		title: {type: 'string'},
 		content: {type: 'string'},
 		buttonText: {type: 'string'},
-		buttonLink: {type: 'string'}
+		buttonLink: {type: 'string'},
+		align: {type: 'string', default: 'wide'}
 	},
   
 	edit: function({attributes, setAttributes, className}) {
