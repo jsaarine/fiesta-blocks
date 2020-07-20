@@ -3,7 +3,9 @@ const babel = require('gulp-babel');
 
 gulp.task('babel', () => {
     return gulp.src('./*/block.js')
-        .pipe(babel())
+        .pipe(babel({
+        	presets: ["@babel/preset-react", "@babel/preset-env"]
+        }))
         .pipe(gulp.dest('./dist'));
 
     
