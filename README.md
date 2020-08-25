@@ -5,8 +5,9 @@ Container plugin for custom Gutenberg blocks
 
 1. Create folder `fiesta-blocks` inside your plugins folder and extract into it
 2. Activate plugin from WordPress
-3. Run `npm install`
-4. Run `gulp` to start watch
+3. Run `npm install --global gulp-cli` to install the Gulp CLI globally
+4. Run `npm install`
+5. Run `gulp` to start watch
 
 ## Create new block
 
