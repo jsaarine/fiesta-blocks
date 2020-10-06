@@ -1,6 +1,6 @@
 const { registerBlockType } = wp.blocks;
 const { RichText, InnerBlocks } = wp.editor;
-  
+
 registerBlockType('fiesta/sample-block', {
 	title: 'Sample block',
 	icon: 'admin-site',
@@ -15,7 +15,7 @@ registerBlockType('fiesta/sample-block', {
 		buttonLink: {type: 'string'},
 		align: {type: 'string', default: 'wide'}
 	},
-  
+
 	edit: function({attributes, setAttributes, className}) {
 		const allowedBlocks = ['core/heading', 'core/paragraph', 'core/buttons'];
 

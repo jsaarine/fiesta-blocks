@@ -15,13 +15,13 @@ add_action('init', function() {
 	register_block_type('fiesta/sample-block', array(
 		'render_callback' => function($attributes, $content) {
 			$align = $attributes['align'] ? ' align'.$attributes['align'] : '';
-			
+
 			return '
 			<div class="wp-block-fiesta-sample-block'.$align.'">
 				'.$content.'
 			</div>';
 		},
-	));    
+	));
 });
 
 

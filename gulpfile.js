@@ -8,7 +8,7 @@ gulp.task('babel', () => {
         }))
         .pipe(gulp.dest('./dist'));
 
-    
+
 });
 
 gulp.task('watch', () => {
