@@ -1,5 +1,7 @@
+const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
-const { RichText, InnerBlocks } = wp.editor;
+const { InspectorControls, InnerBlocks } = wp.editor;
+const { PanelBody, PanelRow, TextControl } = wp.components;
 
 registerBlockType('fiesta/sample-block', {
 	title: 'Sample block',
@@ -10,17 +12,33 @@ registerBlockType('fiesta/sample-block', {
 	},
 	attributes: {
 		title: {type: 'string'},
-		content: {type: 'string'},
-		buttonText: {type: 'string'},
-		buttonLink: {type: 'string'},
 		align: {type: 'string', default: 'wide'}
 	},
 
-	edit: function({attributes, setAttributes, className}) {
+	edit: ({attributes, setAttributes, className}) => {
 		const allowedBlocks = ['core/heading', 'core/paragraph', 'core/buttons'];
 
 		return (
 			<div className={className}>
+				<InspectorControls>
+					<PanelBody
+						title={__('Options')}
+						initialOpen={true}
+					>
+						<PanelRow>
+							<TextControl
+								label={__('Title')}
+								value={attributes.title}
+								onChange={(value) => {
+									setAttributes({title: value});
+								}}
+							/>
+						</PanelRow>
+					</PanelBody>
+				</InspectorControls>
+				<p class="title">
+					<span>{attributes.title || __('[Title]')}</span>
+				</p>
 				<InnerBlocks allowedBlocks={allowedBlocks} templateLock="all" template={[
 					['core/heading', { placeholder: 'Enter title...' }],
 					['core/paragraph', { placeholder: 'Enter content...' }],
@@ -30,7 +48,7 @@ registerBlockType('fiesta/sample-block', {
 		);
 	},
 
-	save: function({attributes}) {
+	save: ({attributes}) => {
 		return <InnerBlocks.Content />
 	}
 })
