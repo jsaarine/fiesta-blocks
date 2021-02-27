@@ -28,11 +28,6 @@ add_action('init', function() {
 			ob_start(); ?>
 
 			<div class="<?= $classname ?>">
-				<?php if($attributes['title']) : ?>
-					<p class="title">
-						<span><?= $attributes['title'] ?></span>
-					</p>
-				<?php endif; ?>
 				<?= $content ?>
 			</div>
 

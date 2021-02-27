@@ -11,7 +11,6 @@ registerBlockType('fiesta/sample-block', {
 		align: ['wide', 'full']
 	},
 	attributes: {
-		title: {type: 'string'},
 		align: {type: 'string', default: 'wide'}
 	},
 
@@ -20,25 +19,6 @@ registerBlockType('fiesta/sample-block', {
 
 		return (
 			<div className={className}>
-				<InspectorControls>
-					<PanelBody
-						title={__('Options')}
-						initialOpen={true}
-					>
-						<PanelRow>
-							<TextControl
-								label={__('Title')}
-								value={attributes.title}
-								onChange={(value) => {
-									setAttributes({title: value});
-								}}
-							/>
-						</PanelRow>
-					</PanelBody>
-				</InspectorControls>
-				<p class="title">
-					<span>{attributes.title || __('[Title]')}</span>
-				</p>
 				<InnerBlocks allowedBlocks={allowedBlocks} templateLock="all" template={[
 					['core/heading', { placeholder: 'Enter title...' }],
 					['core/paragraph', { placeholder: 'Enter content...' }],
