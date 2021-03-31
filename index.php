@@ -14,8 +14,13 @@ namespace Fiesta\Blocks;
 if(!defined('ABSPATH')) exit;
 
 // Include blocks
-include dirname(__FILE__).'/src/sample-block/block.php';
-// include dirname(__FILE__).'/src/sample-block2/block.php';
+$dir = new \DirectoryIterator(dirname(__FILE__).'/src');
+
+foreach($dir as $fileinfo) {
+	if($fileinfo->isDir() && !$fileinfo->isDot()) {
+		include $fileinfo->getPath().'/'.$fileinfo->current().'/block.php';
+	}
+}
 
 // Disable auto updates
 add_filter('plugin_auto_update_setting_html', function($html, $plugin_file, $plugin_data) {
