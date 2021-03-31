@@ -1,17 +1,17 @@
 <?php
 
-namespace Fiesta\Blocks\SampleBlock;
+namespace Fiesta\Blocks\Sample;
 
 
 // Exit if accessed directly
 if(!defined('ABSPATH')) exit;
 
 // Set block name
-define(__NAMESPACE__.'\BLOCK_NAME', 'sample-block');
+const BLOCK_NAME = 'sample';
 
 // Enqueue block JavaScript
 add_action('admin_enqueue_scripts', function () {
-	wp_enqueue_script(BLOCK_NAME, plugin_dir_url(__FILE__) . '../../dist/'.BLOCK_NAME.'/block.js', array('wp-blocks', 'wp-editor'), true);
+	wp_enqueue_script(BLOCK_NAME.'-block', plugin_dir_url(__FILE__) . '../../dist/'.BLOCK_NAME.'/block.js', array('wp-editor'), true);
 });
 
 add_action('init', function() {
@@ -22,8 +22,8 @@ add_action('init', function() {
 
 	register_block_type(\Fiesta\PREFIX.'/'.BLOCK_NAME, array(
 		'render_callback' => function($attributes, $content) {
-			$align = $attributes['align'] ? ' align'.$attributes['align'] : '';
-			$classname = 'wp-block-'.\Fiesta\PREFIX.'-'.BLOCK_NAME.$align;
+			$align = 'alignfull';
+			$classname = 'wp-block-'.\Fiesta\PREFIX.'-'.BLOCK_NAME.' '.$align;
 
 			ob_start(); ?>
 
