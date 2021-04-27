@@ -20,10 +20,10 @@ add_action('init', function() {
 		return;
 	}
 
-	register_block_type(\Fiesta\PREFIX.'/'.BLOCK_NAME, array(
+	register_block_type(\Fiesta\Blocks\PREFIX.'/'.BLOCK_NAME, array(
 		'render_callback' => function($attributes, $content) {
 			$align = 'alignfull';
-			$classname = 'wp-block-'.\Fiesta\PREFIX.'-'.BLOCK_NAME.' '.$align;
+			$classname = 'wp-block-'.\Fiesta\Blocks\PREFIX.'-'.BLOCK_NAME.' '.$align;
 			$has_thumbnail = has_post_thumbnail();
 
 			ob_start(); ?>

@@ -9,6 +9,7 @@
 
 namespace Fiesta\Blocks;
 
+const PREFIX = 'fiesta';
 
 // Exit if accessed directly
 if(!defined('ABSPATH')) exit;
@@ -18,7 +19,11 @@ $dir = new \DirectoryIterator(dirname(__FILE__).'/src');
 
 foreach($dir as $fileinfo) {
 	if($fileinfo->isDir() && !$fileinfo->isDot()) {
-		include $fileinfo->getPath().'/'.$fileinfo->current().'/block.php';
+		$path = $fileinfo->getPath().'/'.$fileinfo->current().'/block.php';
+
+		if(file_exists($path)) {
+			include $path;
+		}
 	}
 }
 
