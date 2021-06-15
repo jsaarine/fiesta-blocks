@@ -28,12 +28,12 @@ registerBlockType("fiesta/hero", {
 		);
 
 		const allowedBlocks = ["core/heading", "core/paragraph", "core/buttons"];
-		const url = image ? image.media_details.sizes.full.source_url : null;
+		const url = image ? image.media_details.sizes.full : null;
 
 		return (
 			<div className={className + (image ? " image" : " plain")}>
 				{url &&
-					<img src={url} alt="" />
+					<img src={url.source_url} alt="" />
 				}
 				<div className="text">
 					<div>
