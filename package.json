@@ -1,7 +1,8 @@
 {
-  "name": "testplugin",
+  "name": "fiesta blocks",
   "version": "1.0.0",
   "description": "",
+  "private": true,
   "main": "block.js",
   "scripts": {
     "build": "webpack",

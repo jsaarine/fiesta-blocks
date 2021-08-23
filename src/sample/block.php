@@ -14,6 +14,13 @@ add_action('admin_enqueue_scripts', function () {
 	wp_enqueue_script(BLOCK_NAME.'-block', plugin_dir_url(__FILE__) . '../../dist/'.BLOCK_NAME.'/block.js', array('wp-editor'), true);
 });
 
+// Allow block type
+add_filter('allowed_block_types_all', function($blocks, $post) {
+	$blocks[] = \Fiesta\Blocks\PREFIX.'/'.BLOCK_NAME;
+	return $blocks;
+
+}, 11, 2);
+
 add_action('init', function() {
 	if(!function_exists('register_block_type')) {
 		// Gutenberg is not active.

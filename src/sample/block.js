@@ -5,10 +5,11 @@ const { InnerBlocks } = wp.blockEditor;
 registerBlockType("fiesta/sample", {
 	title: "Sample block",
 	icon: "block-default",
-	category: "common",
+	category: "fiesta",
 	attributes: {
 		align: {type: "string", default: "full"}
 	},
+	example: {},
 	getEditWrapperProps() {
 		return {
 			"data-align": "full",
@@ -20,10 +21,10 @@ registerBlockType("fiesta/sample", {
 
 		return (
 			<div className={className}>
-				<InnerBlocks allowedBlocks={allowedBlocks} templateLock="all" template={[
-					["core/heading", { placeholder: "Enter title..." }],
-					["core/paragraph", { placeholder: "Enter content..." }],
-					["core/buttons", { placeholder: "Enter button text..." }],
+				<InnerBlocks allowedBlocks={allowedBlocks} template={[
+					["core/heading"],
+					["core/paragraph"],
+					["core/buttons"],
 				]}/>
 			</div>
 		);
